@@ -6,6 +6,7 @@ class Perhitungan extends CI_Controller {
         parent::__construct();
         $this->load->model('Perhitungan_model');
         $this->load->model('Siswa_model');
+        $this->load->model('Lokasi_model');
     }
     public function index(){
         $data['title'] = 'Perhitungan SPK';
@@ -23,39 +24,30 @@ class Perhitungan extends CI_Controller {
     public function proses_hitung(){
         $siswa = $this->input->post('siswa');
         $lokasi = $this->input->post('lokasi');
+        $data = ['id_lokasi'=>$lokasi];
+    //     $id_siswa = [];
 
-        $id_siswa = [];
+    // if($siswa) {
+    //     foreach($siswa as $key => $value){
+    //         if(is_int($key)){
+    //             $id_siswa[] = $value;
+    //         }
+    //     }
+    // }
 
-    if($siswa) {
-        foreach($siswa as $key => $value){
-            if(is_int($key)){
-                $id_siswa[] = $value;
-            }
-        }
+    // check($id_siswa);
+
+    foreach ($siswa as $sis) {
+        $data = [
+            'id_lokasi'=>$lokasi,
+          'id_siswa' => $sis
+        ];
+        $detail_lokasi = $this->Lokasi_model->getLokasiById($data['id_lokasi']);
+        $detail_siswa = $this->Siswa_model->getSiswaById($data['id_siswa']);
     }
-
-    check($id_siswa);
+    check($detail_siswa);
+    die;
    
-    
-    $data = [
-        'siswa' => $id_siswa,
-        'lokasi' => $lokasi
-    ];
-    for ($i=0; $i<$key ; $i++) { 
-        # code...
-        $idnya_siswa = $id_siswa[$i];
-    }
 
-
-        // foreach ($siswa as $sis => $key) {
-        //     # code...
-        //     $id_siswa = $sis[$key];
-        // }
-
-        // foreach ($siswa as $key => $val) {
-        //     $data[$key]['siswa'] = $val;
-        // }
-        // check($data);
-        
     }
 }
