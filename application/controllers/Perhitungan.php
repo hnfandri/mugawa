@@ -24,6 +24,8 @@ class Perhitungan extends CI_Controller {
 
         public function proses_hitung()
         {
+            $this->db->truncate('ranking');
+            $this->db->truncate('penilaian');
         $listsiswa = $this->input->post('siswa');
         $lokasi = $this->input->post('lokasi');
         $data = [];
@@ -100,8 +102,7 @@ class Perhitungan extends CI_Controller {
         $this->load->view('templates/topbar',$data);
         $this->load->view('templates/sidebar');
         $this->load->view('perhitungan/hasil_pengurangan',$data);
-        $this->load->
-        view('templates/footer');
+        $this->load->view('templates/footer');
         }
 
     public function hitung_gap($id_siswa){
@@ -184,5 +185,21 @@ class Perhitungan extends CI_Controller {
             $n_gap = 1;
         } 
         return $n_gap;
+    }
+
+    public function ranking(){
+        $data['title'] = 'Perhitungan SPK';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['hasil_rank'] = $this->Perhitungan_model->getPerankingan();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('perhitungan/hasil_ranking',$data);
+        $this->load->view('templates/footer');
+    }
+
+    public function cetak(){
+        
     }
 }

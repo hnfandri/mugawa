@@ -8,8 +8,11 @@
       <!-- isi konten -->
 
       <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-8">
           <h1 class="h3 mb-4 text-gray-800"><?= $title ;?></h1>
+          </div>
+          <div class="col-md-4">
+            <a href="<?= base_url('perhitungan/ranking') ;?>" class="btn btn-success float-right">Hasil Perankingan</a>
           </div>
       </div>
 

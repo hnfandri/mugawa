@@ -28,6 +28,14 @@ class Perhitungan_model extends CI_Model{
         $this->db->insert('ranking', $hasil_rank);
     }
 
+    public function getPerankingan(){
+        $this->db->select('r.*,s.nama as nama_siswa');
+        $this->db->from('ranking r');
+        $this->db->join('siswa s', 's.id = r.id_siswa', 'left');
+        $this->db->order_by('r.nilai_akhir','desc');
+        return $this->db->get()->result_array();
+    }
+
     
 
 }
