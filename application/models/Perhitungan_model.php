@@ -7,6 +7,29 @@ class Perhitungan_model extends CI_Model{
         return $this->db->get('lokasi')->result_array();
     }
 
+    public function addPenilaian($data){
+        $this->db->insert_batch('penilaian', $data);
+    }
+
+    public function getAllPerhitungan(){
+    $this->db->select('p.*,s.nama as nama_siswa,l.nama as nama_lokasi');
+    $this->db->from('penilaian p');
+    $this->db->join('siswa s', 's.id = p.id_siswa', 'left');
+    $this->db->join('lokasi l', 'l.id = p.id_lokasi', 'left');
+    return $this->db->get()->result_array();
+  
+    }
+
+    public function getPenilaianById($id){
+        return $this->db->get_where('penilaian' , ['id_siswa' => $id])->row_array();
+    }
+
+    public function addRank($hasil_rank){
+        $this->db->insert('ranking', $hasil_rank);
+    }
+
+    
+
 }
 
 ?>
