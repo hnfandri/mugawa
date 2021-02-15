@@ -155,7 +155,7 @@ class Perhitungan extends CI_Controller {
 
         $hasil_rank = [
             'id_siswa' => $id_siswa,
-            'nilai_akhir' => $bobot_rank
+            'nilai_akhir' => round($bobot_rank,2)
         ];
 
         $this->Perhitungan_model->addRank($hasil_rank);
@@ -191,15 +191,20 @@ class Perhitungan extends CI_Controller {
         $data['title'] = 'Perhitungan SPK';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['hasil_rank'] = $this->Perhitungan_model->getPerankingan();
-
+        
         $this->load->view('templates/header',$data);
         $this->load->view('templates/topbar',$data);
         $this->load->view('templates/sidebar');
         $this->load->view('perhitungan/hasil_ranking',$data);
         $this->load->view('templates/footer');
     }
-
+    
     public function cetak(){
-        
+        $data['title'] = 'SPK GAP';
+        $data['hasil_rank'] = $this->Perhitungan_model->getPerankingan();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('perhitungan/ranking',$data);
+
     }
 }
