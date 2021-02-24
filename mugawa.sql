@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Feb 2021 pada 08.20
+-- Waktu pembuatan: 24 Feb 2021 pada 04.20
 -- Versi server: 10.1.30-MariaDB
 -- Versi PHP: 7.2.2
 
@@ -49,7 +49,8 @@ CREATE TABLE `lokasi` (
 --
 
 INSERT INTO `lokasi` (`id`, `nama`, `alamat`, `telp`, `multimedia`, `desain_grafis`, `hardware_software`, `inggris`, `so`, `videografi`, `fotografi`, `editting`, `teamwork`) VALUES
-(1, 'EVIO Multimedia', 'Jl. Palagan Tentara Pelajar Jl. Karya Utama No.22, Panggung Sari, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581', '083445362718', 4, 3, 3, 4, 2, 5, 3, 3, 5);
+(1, 'EVIO Multimedia', 'Jl. Palagan Tentara Pelajar Jl. Karya Utama No.22, Panggung Sari, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581', '083445362718', 4, 3, 3, 4, 2, 5, 3, 3, 5),
+(2, 'Engar Jaya Multimedia', 'Terbah, Wates, Kulon Progo', '081734562781', 4, 3, 3, 2, 4, 5, 4, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -77,24 +78,11 @@ CREATE TABLE `penilaian` (
 --
 
 INSERT INTO `penilaian` (`id_penilaian`, `id_siswa`, `id_lokasi`, `dev_n1`, `dev_n2`, `dev_n3`, `dev_n4`, `dev_n5`, `dev_n6`, `dev_n7`, `dev_n8`, `dev_n9`) VALUES
-(1, 2, 1, -1, 0, 2, 0, 1, 0, 0, 1, -1),
-(2, 5, 1, -1, 1, 2, 1, 3, 0, 0, 0, 0),
-(3, 1, 1, -1, 0, 2, 0, 1, 0, 0, 1, -1),
-(4, 6, 1, 0, 2, 2, -2, 1, -1, 1, 0, -2),
-(5, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
-(6, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
-(7, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
-(8, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
-(9, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
-(10, 6, 1, 0, 2, 2, -2, 1, -1, 1, 0, -2),
-(11, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
-(12, 6, 1, 0, 2, 2, -2, 1, -1, 1, 0, -2),
-(13, 3, 1, 0, 1, 1, 1, 2, -2, 2, 1, -1),
-(14, 5, 1, -1, 1, 2, 1, 3, 0, 0, 0, 0),
-(15, 3, 1, 0, 1, 1, 1, 2, -2, 2, 1, -1),
-(16, 6, 1, 0, 2, 2, -2, 1, -1, 1, 0, -2),
-(17, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
-(18, 5, 1, -1, 1, 2, 1, 3, 0, 0, 0, 0);
+(1, 1, 2, -1, 0, 2, 2, -1, 0, -1, 1, 2),
+(2, 2, 2, 1, -1, 0, 2, -1, -1, 0, 1, 2),
+(3, 5, 2, -1, 1, 2, 3, 1, 0, -1, 0, 3),
+(4, 6, 2, 0, 2, 2, 0, -1, -1, 0, 0, 1),
+(5, 9, 2, 0, 1, 0, 2, -1, -1, 1, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -113,8 +101,9 @@ CREATE TABLE `ranking` (
 --
 
 INSERT INTO `ranking` (`id_rank`, `id_siswa`, `nilai_akhir`) VALUES
-(1, 2, 4.3883333333333),
-(2, 5, 4.31);
+(1, 1, 4.05),
+(2, 2, 4.19),
+(3, 5, 3.79);
 
 -- --------------------------------------------------------
 
@@ -163,35 +152,15 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(288) NOT NULL,
   `email` varchar(288) NOT NULL,
-  `password` varchar(288) NOT NULL,
-  `role_id` int(11) NOT NULL
+  `password` varchar(288) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `role_id`) VALUES
-(2, 'Hanif Andri Wibowo', 'hanifandri140399@gmail.com', '$2y$10$HnBxBrzW63rlAFIVmd4IIex0db3b2.Bz1dv7u.VC8A3IEgcDdIRDS', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user_role`
---
-
-CREATE TABLE `user_role` (
-  `id` int(11) NOT NULL,
-  `role` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `user_role`
---
-
-INSERT INTO `user_role` (`id`, `role`) VALUES
-(1, 'Administrator'),
-(2, 'Member');
+INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
+(2, 'Hanif Andri Wibowo', 'hanifandri140399@gmail.com', '$2y$10$HnBxBrzW63rlAFIVmd4IIex0db3b2.Bz1dv7u.VC8A3IEgcDdIRDS');
 
 --
 -- Indexes for dumped tables
@@ -228,12 +197,6 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
---
-ALTER TABLE `user_role`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -241,36 +204,30 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT untuk tabel `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `ranking`
 --
 ALTER TABLE `ranking`
-  MODIFY `id_rank` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_rank` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `user_role`
---
-ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
