@@ -5,8 +5,9 @@
 </head>
 <body>
 
+<div class="container">
 	<center>
-		<h2><img src="<?= base_url('assets/img/logo-base.png') ;?>" alt=""></h2>
+		<h2><a href="<?= base_url('dashbord') ;?>"><img src="<?= base_url('assets/img/logo-base.png') ;?>" alt=""></a></h2>
 		<h4>Laporan data Siswa PKL SMK Muhammadiyah 3 Wates</h4>
 	</center>
 
@@ -14,6 +15,7 @@
 
 
     <!-- content -->
+    <label for="">Lokasi Prakerin : <?= $lokasi['nama_lokasi'] ;?></label>
     <table class="table table-bordered">
   <thead>
     <tr>
@@ -42,6 +44,8 @@
     <strong>Copyright &copy; 2020-2021 <a href="https:///www.smkmuh3wates.sch.id/">SMK Muhammadiyah 3 Wates</a>.</strong> All rights reserved.
   </footer>
     <!-- end Content -->
+    </div>
+
 	<script>
 		window.print();
 	</script>

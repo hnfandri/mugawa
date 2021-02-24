@@ -40,6 +40,7 @@ class Perhitungan extends CI_Controller {
             'det_siswa' => $detail_siswa,
             'det_lokasi' => $detail_lokasi
             ];
+
             // Ambil nilai-nilai siswa
             $nilai_siswa = [
             'multimedia' => $cek_detail['det_siswa']['multimedia'],
@@ -64,6 +65,7 @@ class Perhitungan extends CI_Controller {
             'editting' => $cek_detail['det_lokasi']['editting'],
             'teamwork' => $cek_detail['det_lokasi']['teamwork'],
             ];
+
             // cari hasil gap nya
             $dev_n1 = $nilai_siswa['multimedia'] - $nilai_lokasi['multimedia'];
             $dev_n2 = $nilai_siswa['desain_grafis'] - $nilai_lokasi['desain_grafis'];
@@ -92,7 +94,7 @@ class Perhitungan extends CI_Controller {
     }
     
     public function hasil_pengurangan(){
-        $data['title'] = 'Hasil Pengurangan';
+        $data['title'] = 'Hasil Perhitungan GAP';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['pengurangan'] = $this->Perhitungan_model->getAllPerhitungan();
 
@@ -202,6 +204,7 @@ class Perhitungan extends CI_Controller {
     public function cetak(){
         $data['title'] = 'SPK GAP';
         $data['hasil_rank'] = $this->Perhitungan_model->getPerankingan();
+        $data['lokasi'] = $this->Perhitungan_model->getLokasi();
 
         $this->load->view('templates/header',$data);
         $this->load->view('perhitungan/ranking',$data);
