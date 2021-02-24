@@ -32,7 +32,7 @@
                     <li class="list-group-item"><?= $lk['nama'] ;?>
                     <span class="float-right">
                         <a href="<?= base_url() ;?>lokasi/detail/<?= $lk['id'] ;?>"><i class="fas fa-bars mr-2"></i></a>
-                        <a href="<?= base_url() ;?>lokasi/ubah/<?= $lk['id'];?>"><i class="fas fa-pencil-alt mr-2"></i></a>
+                        <!-- <a href="<?= base_url() ;?>lokasi/ubah/<?= $lk['id'];?>"><i class="fas fa-pencil-alt mr-2"></i></a> -->
                         <a href="<?= base_url();?>lokasi/hapus/<?= $lk['id'];?>" class="text-danger" onclick="return confirm('Want to delete data ?');"><i class="fas fa-trash mr-1"></i></a>
                     </span>
                     </li>

@@ -52,12 +52,9 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <ul class="nav nav-pills nav-sidebar" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
-            <a href="<?= base_url('auth/logout') ;?>" class="nav-link active">
+            <a href="<?= base_url('auth/logout') ;?>" class="nav-link active btn btn-danger">
             <i class="fas fa-sign-out-alt"></i>
             </a>
-          </li>
     </div>
 
     
