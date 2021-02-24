@@ -157,7 +157,7 @@ class Perhitungan extends CI_Controller {
 
         $hasil_rank = [
             'id_siswa' => $id_siswa,
-            'nilai_akhir' => round($bobot_rank,2)
+            'nilai_akhir' => round($bobot_rank,3)
         ];
 
         $this->Perhitungan_model->addRank($hasil_rank);

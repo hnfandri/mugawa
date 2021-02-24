@@ -31,7 +31,7 @@
     <tr>
       <th><?= $i++ ;?></th>
       <th><?= $hr['nama_siswa'] ;?></th>
-      <th><?= $hr['nilai_akhir'] ;?></th>
+      <th><?= round($hr['nilai_akhir'],3) ;?></th>
       <th><?= $j++ ;?></th>
     </tr>
     <?php endforeach; ?>
