@@ -54,7 +54,7 @@
 
                     <th>
                         
-                       <a href="<?= base_url('perhitungan/hitung_gap/' .$p['id_siswa']) ;?>" class="badge badge-pill badge-primary">hitung gap</a>
+                       <a href="<?= base_url('perhitungan/hitung_gap/' .$p['id_siswa']) ;?>" class="badge badge-pill badge-primary">hitung rank</a>
                         
                     </th>
                 </tr>

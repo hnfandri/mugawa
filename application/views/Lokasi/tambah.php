@@ -12,7 +12,7 @@
         
             <div class="card">
                 <div class="card-header">
-                    Detail lokasi
+                    Tambah lokasi
                 </div>
                 <div class="card-body">
                     

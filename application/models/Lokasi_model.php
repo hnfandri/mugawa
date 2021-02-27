@@ -141,6 +141,7 @@ class Lokasi_model extends CI_Model{
         $this->session->set_flashdata('flash','Added');
         redirect('lokasi');
     }
+    
     public function getLokasiById($id){
         return $this->db->get_where('lokasi' , ['id' => $id])->row_array();
     }

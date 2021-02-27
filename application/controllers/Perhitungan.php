@@ -89,8 +89,6 @@ class Perhitungan extends CI_Controller {
         }
         $this->Perhitungan_model->addPenilaian($data);
         redirect('perhitungan/hasil_pengurangan');
-
-        
     }
     
     public function hasil_pengurangan(){
@@ -190,7 +188,7 @@ class Perhitungan extends CI_Controller {
     }
 
     public function ranking(){
-        $data['title'] = 'Perhitungan SPK';
+        $data['title'] = 'Perhitungan Ranking';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['hasil_rank'] = $this->Perhitungan_model->getPerankingan();
         
