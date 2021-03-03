@@ -201,8 +201,10 @@ class Perhitungan extends CI_Controller {
     
     public function cetak(){
         $data['title'] = 'SPK GAP';
-        $data['hasil_rank'] = $this->Perhitungan_model->getPerankingan();
+        $data['hasil_rank'] = $this->Perhitungan_model->top3();
         $data['lokasi'] = $this->Perhitungan_model->getLokasi();
+        
+        
 
         $this->load->view('templates/header',$data);
         $this->load->view('perhitungan/ranking',$data);

@@ -37,6 +37,19 @@ class Perhitungan_model extends CI_Model{
         $this->db->order_by('r.nilai_akhir','desc');
         return $this->db->get()->result_array();
     }
+
+    public function top3(){
+        $this->db->select('r.*,s.nama as nama_siswa, lokasi.nama as nama_lokasi');
+        $this->db->from('ranking r');
+        $this->db->join('siswa s', 's.id = r.id_siswa', 'left');
+        $this->db->join('penilaian', 'penilaian.id_siswa = r.id_siswa');
+        $this->db->join('lokasi', 'penilaian.id_lokasi = lokasi.id');
+        $this->db->order_by('r.nilai_akhir','desc');
+        $this->db->limit('3');
+        return $this->db->get()->result_array();
+    }
+
+    
     public function getLokasi(){
         $this->db->select('penilaian.id_lokasi, lokasi.nama as nama_lokasi');
         $this->db->from('penilaian');
