@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?= base_url('user') ;?>" class="brand-link">
+    <a href="<?= base_url('dashbord') ;?>" class="brand-link">
       <img width="100px" src="<?= base_url('assets') ;?>/img/logo.png"  class="brand-image img-circle elevation-3">
       <span class="brand-text font-weight-light">SPK Prakerin Mugawa</span>
     </a> 

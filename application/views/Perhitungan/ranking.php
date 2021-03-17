@@ -39,10 +39,7 @@
 </table>
 
 
- <footer class="text-center mb-auto">
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2020-2021 <a href="https:///www.smkmuh3wates.sch.id/">SMK Muhammadiyah 3 Wates</a>.</strong> All rights reserved.
-  </footer>
+
     <!-- end Content -->
     </div>
 

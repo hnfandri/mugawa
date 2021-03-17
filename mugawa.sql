@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Feb 2021 pada 04.20
+-- Waktu pembuatan: 17 Mar 2021 pada 11.30
 -- Versi server: 10.1.30-MariaDB
 -- Versi PHP: 7.2.2
 
@@ -50,7 +50,8 @@ CREATE TABLE `lokasi` (
 
 INSERT INTO `lokasi` (`id`, `nama`, `alamat`, `telp`, `multimedia`, `desain_grafis`, `hardware_software`, `inggris`, `so`, `videografi`, `fotografi`, `editting`, `teamwork`) VALUES
 (1, 'EVIO Multimedia', 'Jl. Palagan Tentara Pelajar Jl. Karya Utama No.22, Panggung Sari, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581', '083445362718', 4, 3, 3, 4, 2, 5, 3, 3, 5),
-(2, 'Engar Jaya Multimedia', 'Terbah, Wates, Kulon Progo', '081734562781', 4, 3, 3, 2, 4, 5, 4, 3, 2);
+(2, 'Engar Jaya Multimedia', 'Terbah, Wates, Kulon Progo', '081734562781', 4, 3, 3, 2, 4, 5, 4, 3, 2),
+(3, 'Titik Fokus', 'Pengasih,pengasih, Kulon Progo', '081392627068', 5, 4, 3, 4, 5, 4, 3, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -78,11 +79,10 @@ CREATE TABLE `penilaian` (
 --
 
 INSERT INTO `penilaian` (`id_penilaian`, `id_siswa`, `id_lokasi`, `dev_n1`, `dev_n2`, `dev_n3`, `dev_n4`, `dev_n5`, `dev_n6`, `dev_n7`, `dev_n8`, `dev_n9`) VALUES
-(1, 1, 2, -1, 0, 2, 2, -1, 0, -1, 1, 2),
-(2, 2, 2, 1, -1, 0, 2, -1, -1, 0, 1, 2),
-(3, 5, 2, -1, 1, 2, 3, 1, 0, -1, 0, 3),
-(4, 6, 2, 0, 2, 2, 0, -1, -1, 0, 0, 1),
-(5, 9, 2, 0, 1, 0, 2, -1, -1, 1, 2, 2);
+(1, 1, 1, -1, 0, 2, 0, 1, 0, 0, 1, -1),
+(2, 2, 1, 1, -1, 0, 0, 1, -1, 1, 1, -1),
+(3, 3, 1, 0, 1, 1, 1, 2, -2, 2, 1, -1),
+(4, 5, 1, -1, 1, 2, 1, 3, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -101,9 +101,10 @@ CREATE TABLE `ranking` (
 --
 
 INSERT INTO `ranking` (`id_rank`, `id_siswa`, `nilai_akhir`) VALUES
-(1, 1, 4.05),
-(2, 2, 4.19),
-(3, 5, 3.79);
+(1, 1, 4.388),
+(2, 2, 4.418),
+(3, 3, 4.207),
+(4, 5, 4.31);
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,8 @@ INSERT INTO `siswa` (`id`, `nama`, `alamat`, `telp`, `multimedia`, `desain_grafi
 (7, 'Palya Sadana', 'Kliwonan, Magelang', '087167489302', 3, 3, 3, 5, 4, 4, 3, 2, 3),
 (8, 'Alfonso Aryando', 'Mlati, sleman', '089156378902', 3, 4, 5, 3, 4, 3, 5, 4, 2),
 (9, 'Hanif Andri Wibowo', 'Pengasih,pengasih, Kulon Progo', '081392627068', 4, 4, 3, 4, 3, 4, 5, 5, 4),
-(10, 'Ferdian Paleka', 'Terbah, Wates, Kulon Progo', '081367489302', 5, 4, 4, 4, 4, 5, 3, 3, 4);
+(10, 'Ferdian Paleka', 'Terbah, Wates, Kulon Progo', '081367489302', 5, 4, 4, 4, 4, 5, 3, 3, 4),
+(11, 'Hesti Nur Ahyani', 'Prambanan, Plasoan, Klaten', '081392627068', 5, 5, 5, 5, 5, 5, 5, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -204,19 +206,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `ranking`
 --
 ALTER TABLE `ranking`
-  MODIFY `id_rank` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rank` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `siswa`

@@ -53,6 +53,7 @@ class Perhitungan extends CI_Controller {
             'editting' => $cek_detail['det_siswa']['editting'],
             'teamwork' => $cek_detail['det_siswa']['teamwork'],
             ];
+
             // Ambil nilai-nilai lokasi
             $nilai_lokasi = [
             'multimedia' => $cek_detail['det_lokasi']['multimedia'],
@@ -105,6 +106,29 @@ class Perhitungan extends CI_Controller {
         $this->load->view('templates/footer');
         }
 
+        public function pencocokan($nilai){
+            if ($nilai == 0) {
+                $n_gap = 5;
+            } elseif ($nilai == 1) {
+                $n_gap = 4.5;
+            } elseif ($nilai == -1) {
+                $n_gap = 4;
+            } elseif ($nilai == 2) {
+                $n_gap = 3.5;
+            } elseif ($nilai == -2) {
+                $n_gap = 3;
+            } elseif ($nilai == 3) {
+                $n_gap = 2.5;
+            } elseif ($nilai == -3) {
+                $n_gap = 2;
+            } elseif ($nilai == 4) {
+                $n_gap = 1.5 ;
+            } else {
+                $n_gap = 1;
+            } 
+            return $n_gap;
+        }
+
     public function hitung_gap($id_siswa){
         $detail_penilaian_siswa = $this->Perhitungan_model->getPenilaianById($id_siswa);
         $nilai_pelajaran =[
@@ -141,7 +165,7 @@ class Perhitungan extends CI_Controller {
             'n9' => $pencocokan_mapel9
         ];
         
-        // perhitungan intelektual nilai ncf
+        // perhitungan intelektual
         $ncf_i = ($pencocokan_mapel1+$pencocokan_mapel2+$pencocokan_mapel3)/3;
         $nsf_i = ($pencocokan_mapel4+$pencocokan_mapel5)/2;
         $n_intelektual = (0.7*$ncf_i)+(0.3*$nsf_i);
@@ -164,28 +188,7 @@ class Perhitungan extends CI_Controller {
         // check($hasil_rank);
     }
 
-    public function pencocokan($nilai){
-        if ($nilai == 0) {
-            $n_gap = 5;
-        } elseif ($nilai == 1) {
-            $n_gap = 4.5;
-        } elseif ($nilai == -1) {
-            $n_gap = 4;
-        } elseif ($nilai == 2) {
-            $n_gap = 3.5;
-        } elseif ($nilai == -2) {
-            $n_gap = 3;
-        } elseif ($nilai == 3) {
-            $n_gap = 2.5;
-        } elseif ($nilai == -3) {
-            $n_gap = 2;
-        } elseif ($nilai == 4) {
-            $n_gap = 1.5 ;
-        } else {
-            $n_gap = 1;
-        } 
-        return $n_gap;
-    }
+    
 
     public function ranking(){
         $data['title'] = 'Perhitungan Ranking';
