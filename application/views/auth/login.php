@@ -47,7 +47,7 @@
 
       <small>
       <p class="mb-0 mt-3 text-center">
-        <!-- <a href="<?= base_url() ;?>auth/registration" class="text-center">Buat Akun</a> -->
+        <a href="<?= base_url() ;?>auth/registration" class="text-center">Buat Akun</a>
       </p>
       </small>
 
